@@ -1,52 +1,172 @@
-/* The first style makes the footer content to centered */
+/* --- Base Styles (Mobile First) --- */
 
-.footer_outer_container{
+.footer_outer_container {
     background-color: #111;
     color: grey;
     display: flex;
     justify-content: center;
-
-}
-/* This is very important why? Limits the width of the content inside .footer_outer_container to 60% of the screen width, ensuring the footer doesn't stretch too wide.*/
-.footer_inner_container{
-    width: 60%;
-
-}
-
-/* The below makes the width of the icon div 12% as a result the facebook and other icons to be displayed vertically. but the second line makes the icons to be flexed, vertically*/
-.footer_icons{
-    width: 12%;
+    padding: 20px;
+  }
+  
+  .footer_inner_container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 10px;
+  }
+  
+  .footer_icons {
     display: flex;
-    justify-content: space-between;
-    margin-left: 10px;
+    justify-content: center; /* Center icons on mobile */
+    gap: 15px;
+    margin-bottom: 20px;
     color: #fff;
-}
-
-/* The below style targets the footer content/text */
-.footer_data{
-    display: flex;
-    justify-content: space-between;
-}
-.footer_data ul{
-    list-style: none;
+    font-size: 1.5rem;
+  }
+  
+  .footer_icons svg {
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  /* Footer Columns */
+  .footer_columns_container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    height:  12vh;
-}
-.footer_data ul li{
-    cursor: pointer;
-}
-.service_code{
+    align-items: center; /* Center items on mobile */
+  }
+  
+  .footer_data {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border: #fff 1px solid;
-    width: 15%;
-    margin: 10px 0;
+    flex-direction: column; /* Stack columns on mobile */
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .footer_data ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center; /* Center text on mobile */
+  }
+  
+  .footer_data ul li {
     cursor: pointer;
-
-}
-.copy_write{
-    font-size: 12px;
-}
+    font-size: 0.9rem;
+  }
+  
+  .footer_column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .service_code {
+    border: #fff 1px solid;
+    padding: 8px 15px;
+    margin: 3px 0;
+    cursor: pointer;
+  }
+  
+  .copy_write {
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* --- Media Query for Tablets (768px and up) --- */
+  @media (min-width: 768px) {
+    .footer_inner_container {
+      width: 80%;
+      max-width: 1200px;
+    }
+  
+    .footer_icons {
+      justify-content: flex-start;
+      gap: 20px;
+      width: auto;
+      margin-bottom: 20px;
+    }
+  
+    .footer_columns_container {
+      flex-direction: row; /* Arrange in a row */
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  
+    .footer_data {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .footer_data ul {
+      text-align: left;
+    }
+  
+    .footer_column {
+      width: 30%;
+      align-items: flex-start;
+    }
+  
+    .copy_write {
+      font-size: 0.8rem;
+      text-align: left;
+    }
+  }
+  
+  /* --- Media Query for Mobile (Up to 767px) --- */
+  @media (max-width: 767px) {
+    .footer_outer_container {
+      padding: 10px;
+    }
+  
+    .footer_inner_container {
+      padding: 5px;
+    }
+  
+    .footer_icons {
+      font-size: 1.2rem;
+      justify-content: center;
+    }
+  
+    .footer_columns_container {
+      align-items: stretch;
+    }
+  
+    .footer_data {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .footer_data ul {
+      text-align: center;
+      gap: 5px;
+    }
+  
+    .footer_data ul li {
+      font-size: 0.8rem;
+    }
+  
+    .service_code {
+      margin: 2px 0;
+      font-size: 0.8rem;
+    }
+  
+    .copy_write {
+      font-size: 0.7rem;
+      text-align: center;
+    }
+  }
+  
+  /* --- Media Query for Desktops (1024px and up) --- */
+  @media (min-width: 1024px) {
+    .footer_inner_container {
+      width: 60%;
+    }
+  
+    .footer_data ul li {
+      font-size: 1rem;
+    }
+  }
+  

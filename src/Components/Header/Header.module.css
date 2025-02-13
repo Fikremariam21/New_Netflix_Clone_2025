@@ -1,4 +1,4 @@
-.header_outer_container{
+/* .header_outer_container{
     position: sticky;
     top: 0;
     display: flex;
@@ -24,22 +24,22 @@
 }
 .header_left{
     /* width: 140%; */
-    padding: 0 10px;
+    /* padding: 0 10px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
+    align-items: center; */
+/* }
   .ul_nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
     list-style: none;
     /* width: 100%; */
-    gap: 20px;
-    padding: 0;
-    cursor: pointer;
-}
-.ul_nav a{
+    /* gap: 20px;
+    padding: 0; */
+    /* cursor: pointer;
+} */
+/* .ul_nav a{
     text-decoration: none;
     color: white;
 }
@@ -55,8 +55,8 @@
 }
 .right_ul_nav  {
     cursor: pointer; 
-
-}
+/*  */
+/* }
 .right_ul_nav a{
     text-decoration: none;
     color: white;
@@ -65,5 +65,152 @@
 
 .header {
   font-family: 'Lexend', sans-serif;
-}
+}  */
+ 
 
+
+/* Header.module.css */
+
+/* --- Base Styles (Mobile First) --- */
+
+.header_outer_container {
+    position: sticky;
+    top: 0;
+    left: 0; /* Ensure full width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(20, 20, 20); /* Netflix dark background */
+    height: 10vh;
+    color: white;
+    transition: all 0.5s ease-in;
+    z-index: 10;
+    width: 100%;
+  }
+  
+  .header_container {
+    width: 100%;
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto; /* Center the container */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  .header_left {
+    display: flex;
+    align-items: center; /* Vertically align logo and menu toggle */
+  }
+  
+  .header_left img {
+    width: 80px; /* Logo width */
+    margin-right: 15px; /* Space between logo and menu icon */
+  }
+  
+  /* Mobile Menu Toggle Button */
+  .menu_toggle {
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    /* Add more styling as needed */
+  }
+  
+  /* Hidden Nav by Default on Mobile */
+  .ul_nav {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: none; /* Hide by default */
+    flex-direction: column; /* Stack list items on mobile */
+    width: 100%; /* Take full width */
+    position: absolute; /* For mobile menu overlay */
+    top: 10vh;      /* Position below the header */
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.95); /* Dark semi-transparent background */
+    text-align: center;
+    z-index: 10;  /* Ensure it's above other content */
+  }
+  
+  .ul_nav li {
+    padding: 10px;
+    color: white;
+    font-size: 1.2rem; /* Adjust font size */
+    cursor: pointer;
+  }
+  
+  .ul_nav li a { /* Style the links */
+    text-decoration: none;
+    color: white;
+  }
+  
+  /* Show Class - applied by Javascript to show menu */
+  .ul_nav.show {
+    display: flex; /* Show the menu */
+  }
+  
+  .header_right {
+    /* Add any mobile-specific styling here, if needed */
+  }
+  
+  .right_ul_nav {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Align icons horizontally */
+    align-items: center; /* Vertically center icons */
+    gap: 15px; /* Space between icons */
+  }
+  
+  .right_ul_nav li {
+    color: white;
+    cursor: pointer;
+  }
+  .right_ul_nav li a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .right_ul_nav li svg {  /* Target the SVG icons */
+    font-size: 1.5rem; /* Adjust icon size */
+  }
+  
+  
+  /* --- Media Query for Larger Screens (Tablets and Desktops) --- */
+  
+  @media (min-width: 768px) {
+    .header_container {
+      flex-direction: row; /* Horizontal layout */
+      justify-content: space-between; /* Space between left and right sections */
+      align-items: center; /* Vertically center */
+    }
+  
+    .header_left {
+      align-items: center; /* Center logo and nav */
+    }
+  
+    .menu_toggle {
+      display: none; /* Hide menu toggle on larger screens */
+    }
+  
+    .ul_nav {
+      display: flex; /* Show nav on larger screens */
+      flex-direction: row; /* Horizontal menu */
+      margin: 0; /* Remove top margin */
+      position: static; /* Remove absolute positioning */
+      background-color: transparent; /* Remove background color */
+      width: auto; /* Reset width */
+      top: auto; /* Reset top */
+      left: auto; /* Reset left */
+      z-index: auto; /* Reset z-index */
+      align-items: center; /* Vertically align menu items */
+    }
+  
+    .ul_nav li {
+      margin: 0 15px; /* Spacing between menu items */
+      font-size: 1rem;
+    }
+    
+    .header_right {
+      /* Add styling for larger screens if needed */
+    }
+  }
