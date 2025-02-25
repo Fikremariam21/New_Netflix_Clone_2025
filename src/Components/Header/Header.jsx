@@ -1,5 +1,6 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import logo from '../../Asset/Images/Netflix-logo.png';
 import SearchIcon from '@mui/icons-material/Search';
@@ -7,20 +8,17 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768); // Adjust breakpoint as needed
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 768); // Adjust breakpoint as needed
+      setIsDesktop(window.innerWidth >= 768);
     };
 
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -31,8 +29,7 @@ const Header = () => {
       <div className={styles.header_container}>
         <div className={styles.header_left}>
           <img src={logo} alt="Netflix-logo" width={"100"} />
-          {/* Mobile Menu Toggle */}
-          {!isDesktop && (  // Only render the menu toggle on mobile
+          {!isDesktop && (
             <div className={styles.menu_toggle} onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle Navigation Menu">
               <MenuIcon />
             </div>
@@ -51,9 +48,14 @@ const Header = () => {
 
         <div className={styles.header_right}>
           <ul className={styles.right_ul_nav}>
-            <li><SearchIcon /></li>
+            <li>
+              {/* Navigate to the search page when clicked */}
+              <Link to="/search" aria-label="Search">
+                <SearchIcon />
+              </Link>
+            </li>
             <li><NotificationsNoneIcon /></li>
-            <li><Link to='/Login' aria-label="Login"><AccountBoxIcon /></Link></li>
+            <li><Link to='/' aria-label="Login"><AccountBoxIcon /></Link></li>
             <li><ArrowDropDownIcon /></li>
           </ul>
         </div>

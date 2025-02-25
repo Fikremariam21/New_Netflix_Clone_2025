@@ -1,30 +1,170 @@
-.row_poster{
-    width: 100%;
-    object-fit: contain;
-    max-height: 100px;
-    transition: transform 450ms;
-    margin-right: 10px;
+
+/* Default Styles (Mobile First) */
+.row {
+    margin-left: 0; /* No margin on mobile */
+    color: white;
 }
-.row_posters{
+
+.row_posters {
     display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
-    padding: 20px; 
+    padding: 5px; /* Less padding on mobile */
+    /* flex-wrap: wrap;  Removed  */
 }
-.row_posters::-webkit-scrollbar{
-    display: none;
+
+.row_posters::-webkit-scrollbar {
+    display: none; /* Hide scrollbar on mobile */
 }
-.row_poster:hover{
-    transform: scale(1.08);
-    z-index: 1;
+
+.row_poster {
+    width: 100%; /* Make images take full width on mobile */
+    height: auto;  
+    object-fit: cover; /* Ensure images fill their container while maintaining aspect ratio */
+    margin-right: 0; /* Remove margins on mobile */
+    transition: transform 450ms;
 }
-.row_posterLarge{
-    max-height: 250px; 
+
+.row_poster:hover {
+    transform: scale(1.08); /* Slight zoom on hover */
+    z-index: 1; /* Ensure image is on top during hover */
 }
-.row_posterLarge:hover{
-    transform: scale(1.09); 
+
+.row_posterLarge {
+    max-height: 100%; /* Allow images to take full height on mobile */
 }
-.row{
-    margin-left: 20px;
+
+.banner {
+    margin-top: 10vh;
+    height: 80vh; /* Ensure the banner is large enough on mobile */
     color: white;
+    object-fit: contain;
+}
+
+.banner_contents {
+    margin-left: 30px;
+    padding-top: 300px;
+}
+
+.banner_title {
+    font-size: 3rem;
+    font-weight: 800;
+    padding-bottom: 0.3rem;
+    color: #fff;
+}
+
+.banner_description {
+    width: 45rem;
+    line-height: 1;
+    padding: 1rem 0;
+    font-size: 1rem;
+    max-width: 360px;
+    height: 80px;
+    color: #fff;
+}
+
+.banner_button {
+    cursor: pointer;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 0.2vw;
+    padding: 1rem 3rem;
+    margin-right: 2rem;
+    background-color: rgba(51, 51, 51, 0.5);
+}
+
+.play {
+    cursor: pointer;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 0.2vw;
+    padding: 1rem 3rem;
+    margin-right: 2rem;
+    background-color: rgba(51, 51, 51, 0.5);
+}
+
+.play {
+    color: #000;
+    background-color: #fff;
+}
+
+.banner_button:hover {
+    color: #000;
+    background-color: #c6c6c6;
+    transition: all 0.2s;
+}
+
+.banner_fadeBottom {
+    height: 40vh;
+    background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.91), #111);
+}
+
+/* Tablet devices (768px and up) */
+@media (min-width: 768px) {
+    .row_poster {
+        width: calc(33.33% - 10px); /* Images take 1/3 width on tablets, adjust margin as you want*/
+        margin: 5px;
+
+    }
+
+    .row_posters {
+        padding: 20px;
+
+    }
+
+    .row_posterLarge {
+        max-height: 250px; /* Increase height for larger devices */
+    }
+
+    .banner {
+        height: 60vh; /* Smaller banner height for tablets */
+    }
+
+    .banner_contents {
+        margin-left: 30px;
+        padding-top: 100px;
+    }
+
+    .banner_title {
+        font-size: 4rem;
+    }
+
+    .banner_description {
+        font-size: 1.2rem;
+    }
+}
+
+/* Desktop devices (1024px and up) */
+@media (min-width: 1024px) {
+    .row_poster {
+        width: calc(20% - 10px); /* Images take 20% width on desktop */
+        margin: 5px;
+    }
+
+    .row_posterLarge {
+        max-height: 250px; /* Set max height for larger desktop screens */
+    }
+
+    .banner {
+        height: 50vh; /* Adjust banner height for large screens */
+    }
+
+    .banner_contents {
+        margin-left: 50px;
+        padding-top: 200px;
+    }
+
+    .banner_title {
+        font-size: 5rem;
+    }
+
+    .banner_description {
+        font-size: 1.5rem;
+    }
 }
